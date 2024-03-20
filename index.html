@@ -12,6 +12,14 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .inline-equation {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -227,12 +235,9 @@
     <section class="hero method">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/method.png" style="width:100%;height:100%;">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/t2v-v8.png" style="width:100%;height:80%;">
           <p>
-            Method overview: Starting from a randomly sampled latent code <span class="math inline">\(x_{T}^{1}\)</span>, we apply <span class="math inline">\(\Delta t\)</span> DDIM backward steps to obtain <span class="math inline">\(x_{T'}^{1}\)</span> using a pre-trained Stable Diffusion model (SD). A specified motion field results for each frame <span class="math inline">\(k\)</span> in a warping function <span class="math inline">\(W_k\)</span> that turns <span class="math inline">\(x_{T'}^{1}\)</span> to <span class="math inline">\(x_{T'}^{k}\)</span>. By enhancing the latent codes with motion dynamics, we determine the global scene and camera motion and achieve temporal consistency in the background and the global scene.
-            A subsequent DDPM forward application delivers latent codes <span class="math inline">\(x_{T}^{k}\)</span> for <span class="math inline">\(k=1,\ldots,m\)</span>. By using the (probabilistic) DDPM method, a greater degree of freedom is achieved with respect to the motion of objects.
-            Finally, the latent codes are passed to our modified SD model using the proposed cross-frame attention, which uses keys and values from the first frame to generate the image of frame <span class="math inline">\(k=1,\ldots,m\)</span>. By using cross-frame attention,  the appearance and the identity of the foreground object are preserved  throughout the sequence. 
-            Optionally, we apply background smoothing. To this end, we employ salient object detection to obtain for each frame <span class="math inline">\(k\) a mask <span class="math inline">\(M^{k}\)</span> indicating the foreground pixels. Finally, for the background (using the mask <span class="math inline">\(M^{k}\)</span>), a convex combination between the latent code <span class="math inline">\(x_{t}^{1}\)</span> of frame one warped to frame <span class="math inline">\(k\)</span> and the latent code <span class="math inline">\(x_{t}^{k}\)</span> is used to further improve the temporal consistency of the background.
+            Method overview: <span class="dnerf">StreamingT2V</span> extends a video diffusion model (VDM) by the conditional attention module (CAM) as short-term memory,  and the appearance preservation module (APM) as long-term memory. CAM conditions the VDM on the previous chunk using a frame encoder <span class="inline-equation">$$\mathcal{E}_{\mathrm{cond}}$$</span>.<br> The attentional mechanism of CAM leads to smooth transitions between chunks and videos with high motion amount at the same time. APM extracts from an anchor frame high-level image features and injects it to the text cross-attentions of the VDM. APM helps to preserve object/scene features across the autogressive video generation.
           </p>
         </div>
       </div>
