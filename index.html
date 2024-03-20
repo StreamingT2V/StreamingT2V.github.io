@@ -70,7 +70,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Text2Video-Zero: <br> Text-to-Image Diffusion Models are <br> Zero-Shot Video Generators</h1>
+          <h1 class="title is-1 publication-title">StreamingT2V: <br> Consistent and Extendable Long Video Generation from Text</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://www.linkedin.com/in/levonkhachatryan">Levon Khachatryan</a><sup>1*</sup>,</span>
@@ -166,9 +166,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/teaser_final.png" style="width:100%;height:540px;">
+      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/high_level_diagram.png" style="width:100%;height:100%;">
       <p class="subtitle has-text-centered">
-        Our method <span class="dnerf">Text2Video-Zero</span> enables zero-shot video generation using (i) a textual prompt (see rows 1, 2), (ii) a prompt combined with guidance from poses or edges (see lower right), and (iii) Video Instruct-Pix2Pix, i.e., instruction-guided video editing (see lower left). Results are temporally consistent and follow closely the guidance and textual prompts.
+        The overall pipeline of <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Short T2V Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span>, the generated long video (80 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach.
       </p>
     </div>
   </div>
@@ -247,10 +247,10 @@
     <table class="center">
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/t2v_cat_running.gif" raw=true></td>
-        <td><img src="./static/images/t2v_playing.gif"></td>
-        <td><img src="./static/images/t2v_running.gif"></td>              
-        <td><img src="./static/images/t2v_skii.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>              
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"A cat is running on the grass"</td>
@@ -260,10 +260,10 @@
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/t2v_panda_surfing.gif" raw=true></td>
-        <td><img src="./static/images/t2v_bear_dancing.gif"></td>
-        <td><img src="./static/images/t2v_bicycle.gif"></td>              
-        <td><img src="./static/images/t2v_horse_galloping.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>              
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"A panda surfing on a wakeboard"</td>
@@ -273,10 +273,10 @@
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/t2v_tiger_walking.gif" raw=true></td>
-        <td><img src="./static/images/t2v_panda_surfing_2.gif"></td>
-        <td><img src="./static/images/t2v_horse_galloping_2.gif"></td>              
-        <td><img src="./static/images/t2v_cat_walking.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>              
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"A tiger walking alone down the street"</td>
@@ -286,10 +286,10 @@
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/t2v_horse_galloping_3.gif" raw=true></td>
-        <td><img src="./static/images/t2v_panda_walking.gif"></td>
-        <td><img src="./static/images/t2v_dog_walking.gif"></td>              
-        <td><img src="./static/images/t2v_astronaut.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>              
+        <td><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"A horse galloping on a street"</td>
@@ -303,10 +303,10 @@
     <table class="center">
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/pose2v_img_bot_left.gif" raw=true><img src="./static/images/pose2v_pose_bot_left.gif"></td>
-        <td><img src="./static/images/pose2v_img_bot_right.gif" raw=true><img src="./static/images/pose2v_pose_bot_right.gif"></td>
-        <td><img src="./static/images/pose2v_img_top_left.gif" raw=true><img src="./static/images/pose2v_pose_top_left.gif"></td>
-        <td><img src="./static/images/pose2v_img_top_right.gif" raw=true><img src="./static/images/pose2v_pose_top_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"A bear dancing on the concrete"</td>
@@ -320,10 +320,10 @@
     <table class="center">
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/edge2v_butterfly.gif" raw=true><img src="./static/images/edge2v_butterfly_edge.gif"></td>
-        <td><img src="./static/images/edge2v_head.gif" raw=true><img src="./static/images/edge2v_head_edge.gif"></td>
-        <td><img src="./static/images/edge2v_jelly.gif" raw=true><img src="./static/images/edge2v_jelly_edge.gif"></td>
-        <td><img src="./static/images/edge2v_mask.gif" raw=true><img src="./static/images/edge2v_mask_edge.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"White butterfly"</td>
@@ -333,10 +333,10 @@
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/edge2v_fox.gif" raw=true><img src="./static/images/edge2v_fix_edge.gif"></td>
-        <td><img src="./static/images/edge2v_head_2.gif" raw=true><img src="./static/images/edge2v_head_2_edge.gif"></td>
-        <td><img src="./static/images/edge2v_santa.gif" raw=true><img src="./static/images/edge2v_santa_edge.gif"></td>
-        <td><img src="./static/images/edge2v_dear.gif" raw=true><img src="./static/images/edge2v_dear_edge.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"Wild fox is walking"</td>
@@ -350,10 +350,10 @@
     <table class="center">
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/canny_db_anime_style.gif" raw=true><img src="./static/images/canny_db_anime_edge.gif"></td>
-        <td><img src="./static/images/canny_db_arcane_style.gif" raw=true><img src="./static/images/canny_db_arcane_edge.gif"></td>
-        <td><img src="./static/images/canny_db_gta-5_man_style.gif" raw=true><img src="./static/images/canny_db_gta-5_man_edge.gif"></td>
-        <td><img src="./static/images/canny_db_img_bot_right.gif" raw=true><img src="./static/images/canny_db_edge_bot_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"anime style"</td>
@@ -367,9 +367,9 @@
     <table class="center">
       <tr><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/vip2p_frame1_up_left.gif" raw=true><img src="./static/images/vip2p_frame1_bot_left.gif"></td>
-        <td><img src="./static/images/vip2p_frame1_up_mid.gif" raw=true><img src="./static/images/vip2p_frame1_bot_mid.gif"></td>
-        <td><img src="./static/images/vip2p_frame1_up_right.gif" raw=true><img src="./static/images/vip2p_frame1_bot_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"Replace man with chimpanze"</td>
@@ -378,9 +378,9 @@
       </tr>
       <tr><td></td><td></td><td></td></tr>
       <tr>
-        <td><img src="./static/images/vip2p_frame2_up_left.gif" raw=true><img src="./static/images/vip2p_frame2_bot_left.gif"></td>
-        <td><img src="./static/images/vip2p_frame2_up_mid.gif" raw=true><img src="./static/images/vip2p_frame2_bot_mid.gif"></td>
-        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_bot_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
+        <td><img src="./static/images/vip2p_frame2_up_right.gif" raw=true><img src="./static/images/vip2p_frame2_up_right.gif"></td>
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"Make it Expressionism style"</td>
