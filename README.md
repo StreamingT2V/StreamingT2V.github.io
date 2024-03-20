@@ -1,1 +1,1 @@
-# text2video-zero.github.io
+# streamingt2v.github.io

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Text2Video-Zero: Text-to-Image Diffusion Models are Zero-Shot Video Generators.">
-  <meta name="keywords" content="Text2Video-Zero">
+        content="StreamingT2V: Consistent and Extendable Long Video Generation from Text.">
+  <meta name="keywords" content="StreamingT2V">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Text2Video-Zero: Text-to-Image Diffusion Models are Zero-Shot Video Generators</title>
+  <title>StreamingT2V: Consistent and Extendable Long Video Generation from Text</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -137,7 +137,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Picsart-AI-Research/Text2Video-Zero"
+                <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -145,15 +145,15 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
+              <!-- Demo Link. -->
+<!--               <span class="link-block">
                 <a href="https://huggingface.co/spaces/PAIR/Text2Video-Zero"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <img src="./static/images/hf.png" alt="Button Image">
                   </span>
                   <span>Demo</span>
-                  </a>
+                  </a> -->
             </div>
 
           </div>
@@ -183,7 +183,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent text-to-video generation approaches rely on computationally heavy training and require large-scale video datasets. In this paper, we introduce a new task of zero-shot text-to-video generation and propose a low-cost approach (without any training or optimization) by leveraging the power of existing text-to-image synthesis methods (e.g. Stable Diffusion), making them suitable for the video domain. Our key modifications include (i) enriching the latent codes of the generated frames with motion dynamics to keep the global scene and the background time consistent; and (ii) reprogramming frame-level self-attention using a new cross-frame attention of each frame on the first frame, to preserve the context, appearance, and identity of the foreground object. Experiments show that this leads to low overhead, yet high-quality and remarkably consistent video generation. Moreover, our approach is not limited to text-to-video synthesis but is also applicable to other tasks such as conditional and content-specialized video generation, and Video Instruct-Pix2Pix, i.e., instruction-guided video editing. As experiments show, our method performs comparably or sometimes better than recent approaches, despite not being trained on additional video data. Our code will be open sourced at: <a href="https://github.com/Picsart-AI-Research/Text2Video-Zero">https://github.com/Picsart-AI-Research/Text2Video-Zero</a>.
+            Recent text-to-video generation approaches rely on computationally heavy training and require large-scale video datasets. In this paper, we introduce a new task of zero-shot text-to-video generation and propose a low-cost approach (without any training or optimization) by leveraging the power of existing text-to-image synthesis methods (e.g. Stable Diffusion), making them suitable for the video domain. Our key modifications include (i) enriching the latent codes of the generated frames with motion dynamics to keep the global scene and the background time consistent; and (ii) reprogramming frame-level self-attention using a new cross-frame attention of each frame on the first frame, to preserve the context, appearance, and identity of the foreground object. Experiments show that this leads to low overhead, yet high-quality and remarkably consistent video generation. Moreover, our approach is not limited to text-to-video synthesis but is also applicable to other tasks such as conditional and content-specialized video generation, and Video Instruct-Pix2Pix, i.e., instruction-guided video editing. As experiments show, our method performs comparably or sometimes better than recent approaches, despite not being trained on additional video data. Our code will be open sourced at: <a href="https://github.com/Picsart-AI-Research/StreamingT2V">https://github.com/Picsart-AI-Research/StreamingT2V</a>.
           </p>
         </div>
       </div>
@@ -447,7 +447,7 @@
         <i class="fas fa-file-pdf"></i>
       </a>
       <!-- <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled> -->
-      <a class="icon-link" href="https://github.com/Picsart-AI-Research/Text2Video-Zero" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/Picsart-AI-Research/StreamingT2V" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
