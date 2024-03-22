@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="StreamingT2V: Consistent and Extendable Long Video Generation from Text.">
+        content="treamingT2V: Consistent, Dynamic, and Extendable Long Video Generation from Text.">
   <meta name="keywords" content="StreamingT2V">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StreamingT2V: Consistent and Extendable Long Video Generation from Text</title>
+  <title>StreamingT2V: Consistent, Dynamic, and Extendable Long Video Generation from Text</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -78,13 +78,13 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">StreamingT2V: <br> Consistent and Extendable Long Video Generation from Text</h1>
+          <h1 class="title is-1 publication-title">StreamingT2V: <br> Consistent, Dynamic, and Extendable Long Video Generation from Text</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://www.linkedin.com/in/dr-ing-roberto-henschel-6aa1ba176">Roberto Henschel</a><sup>1*</sup>,</span>
             </span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/levonkhachatryan">Levon Khachatryan</a><sup>1*</sup>,</span>
+              <a href="https://levon-kh.github.io/">Levon Khachatryan</a><sup>1*</sup>,</span>
             <span class="author-block">
               <a href="https://www.linkedin.com/in/daniil-hayrapetyan-375b05149/">Daniil Hayrapetyan</a><sup>1*</sup>,</span>
             </span><br>
@@ -174,9 +174,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/high_level_diagram.png" style="width:100%;height:100%;">
+      <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/teaser.png" style="width:100%;height:100%;">
       <p class="subtitle has-text-centered">
-        The overall pipeline of <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Short T2V Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span>, the generated long video (80 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach.
+        <b><span class="dnerf">StreamingT2V</span></b> is an advanced autoregressive technique that enables the creation of long videos featuring rich motion dynamics without any stagnation. It ensures temporal consistency throughout the video, aligns closely with the descriptive text, and maintains high frame-level image quality. Our demonstrations include successful examples of videos up to <b>1200 frames, spanning 2 minutes</b>, and can be extended for even longer durations. Importantly, the effectiveness of StreamingT2V is not limited by the specific Text2Video model used, indicating that improvements in base models could yield even higher-quality videos.
+        <!-- The overall pipeline of <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Short T2V Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span>, the generated long video (80 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach. -->
       </p>
     </div>
   </div>
@@ -191,11 +192,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Text-to-video diffusion models enable the generation of high-quality videos that follow text instructions, making it easy to create diverse and individual content. However, existing approaches mostly focus on high-quality short video generation (typically 16 or 24 frames), ending up with hard-cuts when naively extended to the case of long video synthesis. To overcome these limitations, we introduce  <span class="dnerf">StreamingT2V</span>, an autoregressive approach for long video generation of 80 or more frames with smooth transitions.
-
-            The key components are: (i) a short-term memory block called conditional attention module (CAM), which conditions the current generation on the features extracted from the previous chunk via an attentional mechanism, leading to consistent chunk transitions, (ii) a long-term memory block called appearance preservation module, which extracts high-level scene and object features from the first video chunk to prevent the model from forgetting the initial scene,  and (iii) a randomized blending approach that enables to apply a video enhancer autoregressively for infinitely long videos without inconsistencies between chunks.   
-
-            Experiments show that <span class="dnerf">StreamingT2V</span> generates high motion amount. In contrast, all competing image-to-video methods are prone to video stagnation when applied naively in an autoregressive manner. Thus, we propose with <span class="dnerf">StreamingT2V</span> a high-quality seamless text-to-long video generator that outperforms competitors with consistency and motion.
+            Text-to-video diffusion models enable the generation of high-quality videos that follow text instructions, making it easy to create diverse and individual content.
+            However, existing approaches mostly focus on high-quality short video generation (typically 16 or 24 frames), ending up with hard-cuts when naively extended to the case of long video synthesis. To overcome these limitations, we introduce <b><span class="dnerf">StreamingT2V</span></b>, an autoregressive approach for long video generation of <b>80, 240, 600, 1200</b> or more frames with smooth transitions.
+            The key components are:
+            (i) a short-term memory block called conditional attention module (CAM), which conditions the current generation on the features extracted from the previous chunk via an attentional mechanism, leading to consistent chunk transitions, 
+            (ii) a long-term memory block called appearance preservation module, which extracts high-level scene and object features from the first video chunk to prevent the model from forgetting the initial scene,  and (iii) a randomized blending approach that enables to apply a video enhancer autoregressively for infinitely long videos without inconsistencies between chunks.   
+            Experiments show that <span class="dnerf">StreamingT2V</span> generates high motion amount. In contrast, all competing image-to-video methods are prone to video stagnation when applied naively in an autoregressive manner.
+            Thus, we propose with <span class="dnerf">StreamingT2V</span> a high-quality seamless text-to-long video generator that outperforms competitors with consistency and motion. 
           </p>
         </div>
       </div>
