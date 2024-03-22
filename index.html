@@ -184,7 +184,7 @@
 </section>
 
 
-<section class="section">
+<section class="section b-section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -217,6 +217,14 @@
     </div> -->
 
     <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+
+
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
     <video id="replay-video"
                  controls
                  muted
@@ -226,13 +234,10 @@
       <source src="./static/videos/StreamingT2V.mp4"
               type="video/mp4">
     </video>
-
-    <!--/ Paper video. -->
   </div>
 </section>
 
-
-<section class="section" id="Method">
+<section class="section b-section" id="Method">
   <div class="container is-max-desktop content">
     <h2 class="title">Method</h2>
     <section class="hero method">
@@ -253,7 +258,7 @@
     <!-- Clickable title with triangle icon -->
     <h2 class="title" onclick="toggleDetails()">
       Detailed Method Pipeline 
-      <span id="triangle">⏷</span>
+      <span id="triangle">▼</span>
     </h2>
     <!-- Detailed content hidden by default -->
     <div id="detailed-content" style="display: none;">
@@ -277,10 +282,10 @@
     var triangle = document.getElementById("triangle");
     if (content.style.display === "none") {
       content.style.display = "block";
-      triangle.innerHTML = "⏶"; // Change triangle icon to point up
+      triangle.innerHTML = "▲"; // Change triangle icon to point up
     } else {
       content.style.display = "none";
-      triangle.innerHTML = "⏷"; // Change triangle icon to point down
+      triangle.innerHTML = "▼"; // Change triangle icon to point down
     }
   }
 </script>
@@ -302,7 +307,7 @@
 </section> -->
 
 
-<section class="section" id="Results">
+<section class="section " id="Results">
   <div class="container is-max-desktop content">
     <h2 class="title">Results</h2>
     <section class="hero method">
@@ -378,31 +383,13 @@
 </section>
 
 
-<section class="section" id='RelatedLinks'>
+<section class="section b-section" id='RelatedLinks'>
   <div class="container is-max-desktop content">
     <h2 class="title">Related Links</h2>
-
     <ul>
-      <li><a href=""> RELATED LINK TEMPLATE</a></li>
+      <li><a href="https://modelscope.cn/models/iic/text-to-video-synthesis/summary">Modelscope</a></li>
+      <li><a href="https://github.com/lllyasviel/ControlNet">Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
     </ul>
-    <!-- <div class="content has-text-justified">
-      <p>
-        There's a lot of excellent work that was introduced around the same time as ours.
-      </p>
-      <p>
-        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-      </p>
-      <p>
-        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-        both use deformation fields to model non-rigid scenes.
-      </p>
-      <p>
-        Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-      </p>
-      <p>
-        There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-      </p>
-    </div> -->
   </div></section>
   </div>
 </section>
