@@ -178,7 +178,6 @@
       <img id="teaser" autoplay muted loop playsinline height="100%" src="./static/images/teaser.png" style="width:100%;height:100%;">
       <p class="subtitle has-text-centered">
         <b><span class="dnerf">StreamingT2V</span></b> is an advanced autoregressive technique that enables the creation of long videos featuring rich motion dynamics without any stagnation. It ensures temporal consistency throughout the video, aligns closely with the descriptive text, and maintains high frame-level image quality. Our demonstrations include successful examples of videos up to <b>1200 frames, spanning 2 minutes</b>, and can be extended for even longer durations. Importantly, the effectiveness of StreamingT2V is not limited by the specific Text2Video model used, indicating that improvements in base models could yield even higher-quality videos.
-        <!-- The overall pipeline of <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Short T2V Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span>, the generated long video (80 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach. -->
       </p>
     </div>
   </div>
@@ -236,6 +235,22 @@
 <section class="section" id="Method">
   <div class="container is-max-desktop content">
     <h2 class="title">Method</h2>
+    <section class="hero method">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/StreamingT2V.png" style="width:100%;height:80%;">
+          <p>
+            The overall pipeline of  <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Initialization Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span> the generated long video (600, 1200 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="section" id="Method-Detailed">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Method Detailed</h2>
     <section class="hero method">
       <div class="container is-max-desktop">
         <div class="hero-body">
