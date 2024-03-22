@@ -223,6 +223,7 @@
   </div>
 </section>
 
+<!-- 
 <section class="section">
   <div class="container is-max-desktop">
     <video id="replay-video"
@@ -236,8 +237,9 @@
     </video>
   </div>
 </section>
+ -->
 
-<section class="section b-section" id="Method">
+<section class="section" id="Method">
   <div class="container is-max-desktop content">
     <h2 class="title">Method</h2>
     <section class="hero method">
@@ -255,12 +257,27 @@
 
 <section class="section b-section" id="Method-Detailed">
   <div class="container is-max-desktop content">
-    <!-- Clickable title with triangle icon -->
+    <h2 class="title">Detailed Method Pipeline</h2>
+    <section class="hero method">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/method_detailed.png" style="width:100%;height:80%;">
+            <p>
+              Method overview: <span class="dnerf">StreamingT2V</span> extends a video diffusion model (VDM) by the conditional attention module (CAM) as short-term memory,  and the appearance preservation module (APM) as long-term memory. CAM conditions the VDM on the previous chunk using a frame encoder <span class="inline-equation">$$\mathcal{E}_{\mathrm{cond}}$$</span>.<br> The attentional mechanism of CAM leads to smooth transitions between chunks and  videos with high motion amount at the same time. APM extracts from an anchor frame high-level image features and injects it to the text cross-attentions of the VDM. APM helps to  preserve object/scene features across the autogressive video generation.
+            </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<!-- <section class="section b-section" id="Method-Detailed">
+  <div class="container is-max-desktop content">
     <h2 class="title" onclick="toggleDetails()">
       Detailed Method Pipeline 
       <span id="triangle">▼</span>
     </h2>
-    <!-- Detailed content hidden by default -->
     <div id="detailed-content" style="display: none;">
       <section class="hero method">
         <div class="container is-max-desktop">
@@ -274,9 +291,10 @@
       </section>
     </div>
   </div>
-</section>
+</section> 
+-->
 
-<script>
+<!-- <script>
   function toggleDetails() {
     var content = document.getElementById("detailed-content");
     var triangle = document.getElementById("triangle");
@@ -288,7 +306,7 @@
       triangle.innerHTML = "▼"; // Change triangle icon to point down
     }
   }
-</script>
+</script> -->
 
 <!-- <section class="section" id="Method-Detailed">
   <div class="container is-max-desktop content">
@@ -324,10 +342,10 @@
         <td><video src="./static/videos/1200/0005_0000_Wide_shot_of_battlefield,_stormtroopers_.mp4" controls></video></td>
       </tr>
       <tr>
-        <td width=25% style="text-align:center;">"Explore the coral gardens of the sea: witness the kaleidoscope of colors and shapes as coral reefs provide shelter for a myriad of marine life."</td>
+        <td width=25% style="text-align:center;">"Explore the coral gardens of the sea..."</td>
         <td width=25% style="text-align:center;">"Camera moving in a wide bright ice cave."</td>
-        <td width=25% style="text-align:center;">"Experience the dance of jellyfish: float through mesmerizing swarms of jellyfish, pulsating with otherworldly grace and beauty."</td>
-        <td width=25% style="text-align:center;">"Wide shot of battlefield, stormtroopers running at night, fires and smokes and explosions in background."</td>
+        <td width=25% style="text-align:center;">"Experience the dance of jellyfish..."</td>
+        <td width=25% style="text-align:center;">"Wide shot of battlefield, stormtroopers running..."</td>
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
     </table>
@@ -343,9 +361,9 @@
       </tr>
       <tr>
         <td width=25% style="text-align:center;">"Camera following a pack of crows flying in the sky."</td>
-        <td width=25% style="text-align:center;">"Marvel at the diversity of bee species: from the familiar honeybee to lesser-known species like bumblebees, carpenter bees, and orchid bees."</td>
-        <td width=25% style="text-align:center;">"Close flyover over a large wheat field in the early morning sunlight."</td>
-        <td width=25% style="text-align:center;">"Camera moving down into colorful coral reefs, bustling with life beneath the ocean's surface."</td>
+        <td width=25% style="text-align:center;">"Marvel at the diversity of bee species..."</td>
+        <td width=25% style="text-align:center;">"Close flyover over a large wheat field..."</td>
+        <td width=25% style="text-align:center;">"Camera moving down into colorful coral reefs..."</td>
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
     </table>
@@ -372,7 +390,7 @@
       <tr>
         <td width=25% style="text-align:center;">"Flying through nebulas and stars."</td>
         <td width=25% style="text-align:center;">"Camera moving closely over beautiful roses blooming timelapse."</td>
-        <td width=25% style="text-align:center;">"Documenting the growth cycle of vibrant lavender flowers in a mesmerizing time-lapse."</td>
+        <td width=25% style="text-align:center;">"Documenting the growth cycle of vibrant lavender flowers..."</td>
       </tr>
       <tr><td></td><td></td><td></td></tr>
     </table>
@@ -390,7 +408,7 @@
         <td width=25% style="text-align:center;">"Ants, beetles and centipede nest."</td>
         <td width=25% style="text-align:center;">"Fishes swimming in ocean camera moving."</td>
         <td width=25% style="text-align:center;">"A squirrel on a table full of big nuts."</td>
-        <td width=25% style="text-align:center;">"Enter the fascinating world of bees: explore the intricate workings of a beehive, from the diligent workers to the majestic queen."</td>
+        <td width=25% style="text-align:center;">"Enter the fascinating world of bees..."</td>
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
       <tr>
@@ -400,9 +418,9 @@
         <td><video src="./static/videos/80/0046_0000_Beneath_the_majestic_Northern_Lights_of_.mp4" controls></video></td>
       </tr>
       <tr>
-        <td width=25% style="text-align:center;">"A hummingbird flutters among colorful flowers, its wings beating rapidly."</td>
+        <td width=25% style="text-align:center;">"A hummingbird flutters among colorful flowers..."</td>
         <td width=25% style="text-align:center;">"Drone fly to a mansion in a tropical forest."</td>
-        <td width=25% style="text-align:center;">"Flying above a breathtaking limestone structure on a serene and exotic island."</td>
+        <td width=25% style="text-align:center;">"Flying above a breathtaking limestone structure..."</td>
         <td width=25% style="text-align:center;">"Beneath the majestic Northern Lights of Iceland."</td>
       </tr>
       <tr><td></td><td></td><td></td><td></td></tr>
@@ -412,7 +430,7 @@
   </div>
 </section>
 
-
+<!-- 
 <section class="section b-section" id='RelatedLinks'>
   <div class="container is-max-desktop content">
     <h2 class="title">Related Links</h2>
@@ -420,12 +438,12 @@
       <li><a href="https://modelscope.cn/models/iic/text-to-video-synthesis/summary">Modelscope</a></li>
       <li><a href="https://github.com/lllyasviel/ControlNet">Adding Conditional Control to Text-to-Image Diffusion Models (a.k.a ControlNet)</a></li>
       <li><a href="https://github.com/huggingface/diffusers">🤗 Diffusers</a></li>
-      <!-- <li><a href="https://github.com/Doubiiu/DynamiCrafter">DynamiCrafter: Animating Open-domain Images with Video Diffusion Priors</a></li> -->
+      <li><a href="https://github.com/Doubiiu/DynamiCrafter">DynamiCrafter: Animating Open-domain Images with Video Diffusion Priors</a></li>
     </ul>
   </div></section>
   </div>
 </section>
-
+ -->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
