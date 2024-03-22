@@ -238,7 +238,7 @@
     <section class="hero method">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/StreamingT2V.png" style="width:100%;height:80%;">
+          <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/method.png" style="width:100%;height:80%;">
           <p>
             The overall pipeline of  <span class="dnerf">StreamingT2V</span>: In the <span class="dnerf">Initialization Stage</span>, the first 16-frame chunk is synthesized by a text-to-video model. In the <span class="dnerf">Streaming T2V Stage</span>, the new content for further frames are autoregressively generated. Finally, in the <span class="dnerf">Streaming Refinement Stage</span> the generated long video (600, 1200 frames or more) is autoregressively enhanced by applying a high-resolution text-to-short-video model, equipped with our randomized blending approach.
           </p>
@@ -249,6 +249,43 @@
 </section>
 
 <section class="section" id="Method-Detailed">
+  <div class="container is-max-desktop content">
+    <!-- Clickable title with triangle icon -->
+    <h2 class="title" onclick="toggleDetails()">
+      Detailed Method Pipeline 
+      <span id="triangle">⏷</span>
+    </h2>
+    <!-- Detailed content hidden by default -->
+    <div id="detailed-content" style="display: none;">
+      <section class="hero method">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <img id="method" autoplay muted loop playsinline height="100%" src="./static/images/method_detailed.jpg" style="width:100%;height:80%;">
+            <p>
+              Method overview: <span class="dnerf">StreamingT2V</span> extends a video diffusion model (VDM) by the conditional attention module (CAM) as short-term memory,  and the appearance preservation module (APM) as long-term memory. CAM conditions the VDM on the previous chunk using a frame encoder <span class="inline-equation">$$\mathcal{E}_{\mathrm{cond}}$$</span>.<br> The attentional mechanism of CAM leads to smooth transitions between chunks and  videos with high motion amount at the same time. APM extracts from an anchor frame high-level image features and injects it to the text cross-attentions of the VDM. APM helps to  preserve object/scene features across the autogressive video generation.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleDetails() {
+    var content = document.getElementById("detailed-content");
+    var triangle = document.getElementById("triangle");
+    if (content.style.display === "none") {
+      content.style.display = "block";
+      triangle.innerHTML = "⏶"; // Change triangle icon to point up
+    } else {
+      content.style.display = "none";
+      triangle.innerHTML = "⏷"; // Change triangle icon to point down
+    }
+  }
+</script>
+
+<!-- <section class="section" id="Method-Detailed">
   <div class="container is-max-desktop content">
     <h2 class="title">Method Detailed</h2>
     <section class="hero method">
@@ -262,7 +299,7 @@
       </div>
     </section>
   </div>
-</section>
+</section> -->
 
 
 <section class="section" id="Results">
