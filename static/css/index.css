@@ -2,6 +2,22 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+/* Hide inactive tab contents */
+.tab-content.is-hidden {
+  display: none;
+}
+
+/* Styling for active tab */
+.tabs ul li.is-active a {
+  border-bottom: 2px solid #3273dc; /* Primary color for the active tab */
+  color: #3273dc;
+  cursor: pointer;
+}
+
+/* Styling for inactive tabs */
+.tabs ul li a {
+  cursor: pointer;
+}
 
 .footer .icon-link {
     font-size: 25px;
