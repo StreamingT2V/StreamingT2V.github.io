@@ -20,6 +20,17 @@
     }
   </style>
 
+  <style>
+  .frame {
+      border: 1px solid #888888; /* Border color */
+      border-radius: 10px; /* Rounded corners */
+      padding: 20px; /* Padding around content */
+  /*    background-color: #f9f9f9; /* Background color */*/
+      margin-top: 20px; /* Space above the frame */
+    }
+  </style>
+
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -44,6 +55,22 @@
   <link rel="icon" href="./static/images/favicon.png">
 
   <style>  
+    .transparent-table {
+      border: none;
+      background-color: transparent;
+      width: auto;
+      margin: 0 auto;
+    }
+
+    .transparent-table td, .transparent-table th {
+      border: none;
+      padding: 8px; /* or adjust padding if needed */
+    }
+
+    .transparent-table tr {
+      background-color: transparent;
+    }
+
     table {  
       font-family: arial, sans-serif;  
       border-collapse: collapse;  
@@ -112,65 +139,235 @@
             <span class="author-block"><sup>*</sup>Equal Contribution</span>
           </div>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
-              <span class="link-block">
-                <!-- FIX THE LINK -->
-                <a href="https://arxiv.org/abs/2403.14773"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=GDPP0zmFmQg"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Demo Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/spaces/PAIR/StreamingT2V"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <img src="./static/images/hf.png" alt="Button Image">
-                  </span>
-                  <span>Demo</span>
-                  </a>
+          <br><br><br>
+
+          <div class="tabs-container has-text-centered">
+            <!-- Tabs -->
+            <div class="tabs is-centered">
+              <ul>
+                <li class="is-active" id="streaming-svd-tab"><a onclick="showTab('streaming-svd')">StreamingSVD</a></li>
+                <li id="streaming-modelscope-tab"><a onclick="showTab('streaming-modelscope')">StreamingModelscope</a></li>
+              </ul>
             </div>
 
+            <!-- StreamingSVD Tab Content -->
+            <div id="streaming-svd" class="tab-content">
+              <div class="publication-links">
+                <!-- arXiv Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2403.14773"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link -->
+                <span class="link-block">
+                  <a href="https://youtu.be/md4lp42vOGU"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <!-- StreamingModelscope Tab Content -->
+            <div id="streaming-modelscope" class="tab-content" style="display: none;">
+              <div class="publication-links">               
+                <!-- Video Link -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=GDPP0zmFmQg"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link -->
+                <span class="link-block">
+                  <a href="https://github.com/Picsart-AI-Research/StreamingT2V/tree/StreamingModelscope"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
+
+          <!-- JavaScript to handle tab switching -->
+          <script>
+          function showTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(function(content) {
+              content.style.display = 'none';
+            });
+
+            // Remove 'is-active' class from all tabs
+            document.querySelectorAll('.tabs ul li').forEach(function(tab) {
+              tab.classList.remove('is-active');
+            });
+
+            // Show the selected tab content
+            document.getElementById(tabId).style.display = 'block';
+
+            // Add 'is-active' class to the clicked tab
+            document.getElementById(tabId + '-tab').classList.add('is-active');
+          }
+          </script>
+
+
+          <!-- <div class="column has-text-centered">
+            <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2403.14773"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=GDPP0zmFmQg"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href=""
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                    </a>
+                </span>
+            </div> -->
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+             <!--  <table class="transparent-table">
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>StreamingModelscope</td>
+                  <td></td>
+                  <td>StreamingSVD</td>
+                </tr>  
+                  <tr><td></td><td></td><td></td><td></td><td></td>
+                </tr>  
+                <tr>
+                  <td>
+                    <span class="link-block">
+                      <a href="https://arxiv.org/abs/2403.14773"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+                  </td>
+                  <td></td>                  
+                  <td>
+                    <span class="link-block">
+                      <a href="https://www.youtube.com/watch?v=GDPP0zmFmQg"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fab fa-youtube"></i>
+                        </span>
+                        <span>Video</span>
+                      </a>
+                    </span>
+
+                    <span class="link-block">
+                      <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block">
+                      <a href="https://huggingface.co/spaces/PAIR/StreamingT2V"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <img src="./static/images/hf.png" alt="Button Image">
+                        </span>
+                        <span>Demo</span>
+                        </a>
+                    </span>
+                  </td>
+                  <td></td>                  
+                  <td>
+                    <span class="link-block">
+                      <a href=""
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fab fa-youtube"></i>
+                        </span>
+                        <span>Video</span>
+                      </a>
+                    </span>
+
+                    <span class="link-block">
+                      <a href="https://github.com/Picsart-AI-Research/StreamingT2V"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                        </a>
+                    </span>                    
+                  </td>
+                </tr> -->
+
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
@@ -332,100 +529,135 @@
     <div class="container is-max-desktop">
     <div class="hero-body">
 
-    <h3 class="title">1200 FRAMES @ 2 MINUTES</h3>
-    <table class="center">
-      <tr><td></td><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/1200/0002_0000_Explore_the_coral_gardens_of_the_sea__wi.mp4" controls></video></td>
-        <td><video src="./static/videos/1200/0003_0000_Camera_moving_in_a_wide_bright_ice_cave,.mp4" controls></video></td>
-        <td><video src="./static/videos/1200/0004_0000_Experience_the_dance_of_jellyfish__float.mp4" controls></video></td>
-        <td><video src="./static/videos/1200/0005_0000_Wide_shot_of_battlefield,_stormtroopers_.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"Explore the coral gardens of the sea..."</td>
-        <td width=25% style="text-align:center;">"Camera moving in a wide bright ice cave."</td>
-        <td width=25% style="text-align:center;">"Experience the dance of jellyfish..."</td>
-        <td width=25% style="text-align:center;">"Wide shot of battlefield, stormtroopers running..."</td>
-      </tr>
-      <tr><td></td><td></td><td></td><td></td></tr>
-    </table>
+    <h3 class="title">StreamingSVD</h3>
+    <div class="frame">
+      <table class="center">
+        <tr><td></td><td></td><td></td></tr>        
+        <tr>          
+          <td><img src="./static/videos/svd/00.jpg"><video src="./static/videos/svd/00.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/04.png"><video src="./static/videos/svd/04.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/13.jpg"><video src="./static/videos/svd/13.mp4" controls></video></td>
+        </tr>
+        <tr><td></td><td></td><td></td></tr>        
+        <tr><td></td><td></td><td></td></tr>        
+        <tr>
+          <td><img src="./static/videos/svd/06.png"><video src="./static/videos/svd/06.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/09.png"><video src="./static/videos/svd/09.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/12.jpg"><video src="./static/videos/svd/12.mp4" controls></video></td>          
+        </tr>
+        <tr><td></td><td></td><td></td></tr>        
+        <tr><td></td><td></td><td></td></tr>        
+        <tr>
+          <td><img src="./static/videos/svd/10.png"><video src="./static/videos/svd/10.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/11.png"><video src="./static/videos/svd/11.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/15.jpg"><video src="./static/videos/svd/15.mp4" controls></video></td>
+        </tr>
+        <tr><td></td><td></td><td></td></tr>        
+        <tr><td></td><td></td><td></td></tr>        
+        <tr>
+          <td><img src="./static/videos/svd/07.png"><video src="./static/videos/svd/07.mp4" controls></video></td>
+          <td><img src="./static/videos/svd/03.jpg"><video src="./static/videos/svd/03.mp4" controls></video></td>          
+          <td><img src="./static/videos/svd/16.jpg"><video src="./static/videos/svd/16.mp4" controls></video></td>                    
+        </tr>   
+      </table>
+    </div>
 
-    <h3 class="title">600 FRAMES @ 1 MINUTE</h3>
-    <table class="center">
-      <tr><td></td><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/600/0000_0000_Camera_following_a_pack_of_crows_flying_.mp4" controls></video></td>
-        <td><video src="./static/videos/600/0000_0000_Marvel_at_the_diversity_of_bee_species_short.mp4" controls></video></td>
-        <td><video src="./static/videos/600/0001_0000_Close_flyover_over_a_large_wheat_field_i.mp4" controls></video></td>
-        <td><video src="./static/videos/600/0006_0000_Camera_moving_down_into_colorful_coral_r_short.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"Camera following a pack of crows flying in the sky."</td>
-        <td width=25% style="text-align:center;">"Marvel at the diversity of bee species..."</td>
-        <td width=25% style="text-align:center;">"Close flyover over a large wheat field..."</td>
-        <td width=25% style="text-align:center;">"Camera moving down into colorful coral reefs..."</td>
-      </tr>
-      <tr><td></td><td></td><td></td><td></td></tr>
-    </table>
+    <h3 class="title">StreamingT2V</h3>
+    <div class="frame">
+      <h4 class="title">1200 FRAMES @ 2 MINUTES</h4>
+      <table class="center">
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/1200/0002_0000_Explore_the_coral_gardens_of_the_sea__wi.mp4" controls></video></td>
+          <td><video src="./static/videos/1200/0003_0000_Camera_moving_in_a_wide_bright_ice_cave,.mp4" controls></video></td>
+          <td><video src="./static/videos/1200/0004_0000_Experience_the_dance_of_jellyfish__float.mp4" controls></video></td>
+          <td><video src="./static/videos/1200/0005_0000_Wide_shot_of_battlefield,_stormtroopers_.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"Explore the coral gardens of the sea..."</td>
+          <td width=25% style="text-align:center;">"Camera moving in a wide bright ice cave."</td>
+          <td width=25% style="text-align:center;">"Experience the dance of jellyfish..."</td>
+          <td width=25% style="text-align:center;">"Wide shot of battlefield, stormtroopers running..."</td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
 
-    <h3 class="title">240 FRAMES @ 24 SECONDS</h3>
-    <table class="center">
-      <tr><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/240/0023_0000_Fluids_mixing_and_changing_colors,_close.mp4"  controls></video></td>
-        <td><video src="./static/videos/240/0009_0000_Santa_Claus_is_dancing.mp4" controls></video></td>
-        <td><video src="./static/videos/240/0018_0000_Explosion,_burning,_smoke,_bomb,_nuclear.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"Fluids mixing and changing colors."</td>
-        <td width=25% style="text-align:center;">"Santa Claus is dancing."</td>
-        <td width=25% style="text-align:center;">"Explosion."</td>
-      </tr>
-      <tr><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/240/0027_0000_Flying_through_nebulas_and_stars.mp4" controls></video></td>
-        <td><video src="./static/videos/240/0035_0000_Camera_moving_closely_over_beautiful_ros.mp4" controls></video></td>
-        <td><video src="./static/videos/240/0044_0000_Documenting_the_growth_cycle_of_vibrant_.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"Flying through nebulas and stars."</td>
-        <td width=25% style="text-align:center;">"Camera moving closely over beautiful roses blooming timelapse."</td>
-        <td width=25% style="text-align:center;">"Documenting the growth cycle of vibrant lavender flowers..."</td>
-      </tr>
-      <tr><td></td><td></td><td></td></tr>
-    </table>
-    
-    <h3 class="title">80 FRAMES @ 8 SECONDS</h3>
-    <table class="center">
-      <tr><td></td><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/80/0005_0000_Ants,_beetles_and_centipede_nest.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0021_0000_Fishes_swimming_in_ocean_camera_moving,_.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0022_0000_A_squirrel_in_Antarctica,_on_a_pile_of_h.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0023_0000_Enter_the_fascinating_world_of_bees__exp.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"Ants, beetles and centipede nest."</td>
-        <td width=25% style="text-align:center;">"Fishes swimming in ocean camera moving."</td>
-        <td width=25% style="text-align:center;">"A squirrel on a table full of big nuts."</td>
-        <td width=25% style="text-align:center;">"Enter the fascinating world of bees..."</td>
-      </tr>
-      <tr><td></td><td></td><td></td><td></td></tr>
-      <tr>
-        <td><video src="./static/videos/80/0030_0000_A_hummingbird_flutters_among_colorful_fl.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0033_0000_Drone_fly_to_a_mansion_in_a_tropical_for.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0041_0000_Aerial__flying_above_a_breathtaking_lime.mp4" controls></video></td>
-        <td><video src="./static/videos/80/0046_0000_Beneath_the_majestic_Northern_Lights_of_.mp4" controls></video></td>
-      </tr>
-      <tr>
-        <td width=25% style="text-align:center;">"A hummingbird flutters among colorful flowers..."</td>
-        <td width=25% style="text-align:center;">"Drone fly to a mansion in a tropical forest."</td>
-        <td width=25% style="text-align:center;">"Flying above a breathtaking limestone structure..."</td>
-        <td width=25% style="text-align:center;">"Beneath the majestic Northern Lights of Iceland."</td>
-      </tr>
-      <tr><td></td><td></td><td></td><td></td></tr>
-    </table>
+      <h4 class="title">600 FRAMES @ 1 MINUTE</h4>
+      <table class="center">
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/600/0000_0000_Camera_following_a_pack_of_crows_flying_.mp4" controls></video></td>
+          <td><video src="./static/videos/600/0000_0000_Marvel_at_the_diversity_of_bee_species_short.mp4" controls></video></td>
+          <td><video src="./static/videos/600/0001_0000_Close_flyover_over_a_large_wheat_field_i.mp4" controls></video></td>
+          <td><video src="./static/videos/600/0006_0000_Camera_moving_down_into_colorful_coral_r_short.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"Camera following a pack of crows flying in the sky."</td>
+          <td width=25% style="text-align:center;">"Marvel at the diversity of bee species..."</td>
+          <td width=25% style="text-align:center;">"Close flyover over a large wheat field..."</td>
+          <td width=25% style="text-align:center;">"Camera moving down into colorful coral reefs..."</td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
 
+      <h4 class="title">240 FRAMES @ 24 SECONDS</h4>
+      <table class="center">
+        <tr><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/240/0023_0000_Fluids_mixing_and_changing_colors,_close.mp4"  controls></video></td>
+          <td><video src="./static/videos/240/0009_0000_Santa_Claus_is_dancing.mp4" controls></video></td>
+          <td><video src="./static/videos/240/0018_0000_Explosion,_burning,_smoke,_bomb,_nuclear.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"Fluids mixing and changing colors."</td>
+          <td width=25% style="text-align:center;">"Santa Claus is dancing."</td>
+          <td width=25% style="text-align:center;">"Explosion."</td>
+        </tr>
+        <tr><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/240/0027_0000_Flying_through_nebulas_and_stars.mp4" controls></video></td>
+          <td><video src="./static/videos/240/0035_0000_Camera_moving_closely_over_beautiful_ros.mp4" controls></video></td>
+          <td><video src="./static/videos/240/0044_0000_Documenting_the_growth_cycle_of_vibrant_.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"Flying through nebulas and stars."</td>
+          <td width=25% style="text-align:center;">"Camera moving closely over beautiful roses blooming timelapse."</td>
+          <td width=25% style="text-align:center;">"Documenting the growth cycle of vibrant lavender flowers..."</td>
+        </tr>
+        <tr><td></td><td></td><td></td></tr>
+      </table>
+      
+      <h4 class="title">80 FRAMES @ 8 SECONDS</h4>
+      <table class="center">
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/80/0005_0000_Ants,_beetles_and_centipede_nest.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0021_0000_Fishes_swimming_in_ocean_camera_moving,_.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0022_0000_A_squirrel_in_Antarctica,_on_a_pile_of_h.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0023_0000_Enter_the_fascinating_world_of_bees__exp.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"Ants, beetles and centipede nest."</td>
+          <td width=25% style="text-align:center;">"Fishes swimming in ocean camera moving."</td>
+          <td width=25% style="text-align:center;">"A squirrel on a table full of big nuts."</td>
+          <td width=25% style="text-align:center;">"Enter the fascinating world of bees..."</td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr>
+          <td><video src="./static/videos/80/0030_0000_A_hummingbird_flutters_among_colorful_fl.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0033_0000_Drone_fly_to_a_mansion_in_a_tropical_for.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0041_0000_Aerial__flying_above_a_breathtaking_lime.mp4" controls></video></td>
+          <td><video src="./static/videos/80/0046_0000_Beneath_the_majestic_Northern_Lights_of_.mp4" controls></video></td>
+        </tr>
+        <tr>
+          <td width=25% style="text-align:center;">"A hummingbird flutters among colorful flowers..."</td>
+          <td width=25% style="text-align:center;">"Drone fly to a mansion in a tropical forest."</td>
+          <td width=25% style="text-align:center;">"Flying above a breathtaking limestone structure..."</td>
+          <td width=25% style="text-align:center;">"Beneath the majestic Northern Lights of Iceland."</td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
   </div></div></section>
   </div>
 </section>
